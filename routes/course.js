@@ -35,4 +35,10 @@ router.route('/sessions/:id')
 
 router.route("/:href/:sessionID").get(courseController.getSessionInfo)
 
+
+router.route("/:id/register")
+    .post(authMiddleware, courseController.register)
+
+    
+
 module.exports = router
