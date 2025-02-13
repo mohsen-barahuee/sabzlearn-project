@@ -39,7 +39,7 @@ exports.createSession = async (req, res) => {
             title,
             time,
             free,
-            video: "video Mp4",
+            video: req.file.filename, // we get req.file.filename becuz we use multer as middleware
             course: id,
         })
 
@@ -75,7 +75,7 @@ exports.getSessionInfo = async (req, res) => {
 
 
 exports.deleteSession = async (req, res) => {
-    
+
 
     const deletedCourse = await sessionModel.findOneAndDelete({
         _id: req.params.id

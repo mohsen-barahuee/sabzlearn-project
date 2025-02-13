@@ -16,8 +16,8 @@ router.route("/")
 
 router.route("/:id/sessions")
     .post(
-        // multer({ storage: multerStorage, limits: { fileSize: 1000000000000 } })
-        //     .single("video"),
+        multer({ storage: multerStorage, limits: { fileSize: 1000000000000 } })
+            .single("video"),
         authMiddleware,
         isAdminMiddleware,
         courseController.createSession)
