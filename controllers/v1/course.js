@@ -2,7 +2,7 @@ const courseModel = require('./../../models/course')
 const sessionModel = require('./../../models/session')
 const courseUserModel = require("../../models/course-user")
 const categoryModel = require('../../models/category')
-
+const commentsModel = require('../../models/comment')
 
 exports.create = async (req, res) => {
     const {
@@ -26,11 +26,27 @@ exports.create = async (req, res) => {
 
     return res.status(201).json(mainCourse)
 
+}
 
+exports.getOne = async (req, res) => {
+
+    const course = await courseModel.findOne({ href: req.params.href })
+        .populate("creator", '-password')
+        .populate('categoryID')
+
+    const sessions = await sessionModel.find({ course: course._id })
+    const comments = await commentsModel.find({ course: course._id })
+        .populate('creator', "+ username")
+        .populate("course", "+ name")
+
+    const courseUsers = await courseUserModel.find({
+        course: course._id
+    }).populate("user", "+ username").populate("course", "+ name")
+
+    return res.json({ course, sessions, comments, courseUsers })
 }
 
 exports.createSession = async (req, res) => {
-
 
     try {
         const { title, free, time } = req.body
@@ -125,7 +141,7 @@ exports.getCoursesByCategory = async (req, res) => {
     const { href } = req.params
 
     const category = await categoryModel.findOne({ title: href })
-   
+
     if (category) {
         const categoryCourses = await courseModel.find({
             categoryID: category._id
