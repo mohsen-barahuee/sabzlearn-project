@@ -1,5 +1,6 @@
 const express = require("express")
 const courseController = require('../controllers/v1/course')
+const commentController = require("../controllers/v1/comment")
 const multer = require('multer')
 const multerStorage = require('../utils/uploader')
 const authMiddleware = require("./../middlewares/auth")
@@ -21,7 +22,8 @@ router.route('/category/:href').get(courseController.getCoursesByCategory)
 router.route("/:id")
     .delete(authMiddleware, isAdminMiddleware, courseController.remove)
 
-
+router.route('/:id/accept').put(authMiddleware, isAdminMiddleware, commentController.AcceptComment)
+router.route('/:id/answer').post(authMiddleware, isAdminMiddleware, commentController.answerComment)
 
 router.route("/:id/sessions")
     .post(
