@@ -8,19 +8,22 @@ const router = express.Router()
 
 
 router.route("/")
-    .post(multer({ storage: multerStorage, limits: { fileSize: 1000000000000 } })
-        .single("cover"),
-        authMiddleware,
-        isAdminMiddleware
-        , courseController.create)
+.post(multer({ storage: multerStorage, limits: { fileSize: 1000000000000 } })
+.single("cover"),
+authMiddleware,
+isAdminMiddleware
+, courseController.create)
+
+router.route('/category/:href').get(courseController.getCoursesByCategory)
+
 
 router.route("/:id/sessions")
-    .post(
-        multer({ storage: multerStorage, limits: { fileSize: 1000000000000 } })
-            .single("video"),
-        authMiddleware,
-        isAdminMiddleware,
-        courseController.createSession)
+.post(
+    multer({ storage: multerStorage, limits: { fileSize: 1000000000000 } })
+    .single("video"),
+    authMiddleware,
+    isAdminMiddleware,
+    courseController.createSession)
 
 router.route('/sessions')
     .get(
@@ -39,6 +42,7 @@ router.route("/:href/:sessionID").get(courseController.getSessionInfo)
 router.route("/:id/register")
     .post(authMiddleware, courseController.register)
 
-    
+
+
 
 module.exports = router

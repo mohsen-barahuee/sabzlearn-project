@@ -1,6 +1,7 @@
 const courseModel = require('./../../models/course')
 const sessionModel = require('./../../models/session')
 const courseUserModel = require("../../models/course-user")
+const categoryModel = require('../../models/category')
 
 
 exports.create = async (req, res) => {
@@ -113,6 +114,29 @@ exports.register = async (req, res) => {
     return res.status(201).json({
         message: "user is reagister successfully :))"
     })
+
+
+}
+
+
+exports.getCoursesByCategory = async (req, res) => {
+
+
+    const { href } = req.params
+
+    const category = await categoryModel.findOne({ title: href })
+   
+    if (category) {
+        const categoryCourses = await courseModel.find({
+            categoryID: category._id
+        })
+
+        return res.json(categoryCourses)
+
+    } else {
+        return res.json({ message: "Not found" })
+    }
+
 
 
 }
