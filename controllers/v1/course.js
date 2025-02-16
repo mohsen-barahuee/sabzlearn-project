@@ -3,6 +3,8 @@ const sessionModel = require('./../../models/session')
 const courseUserModel = require("../../models/course-user")
 const categoryModel = require('../../models/category')
 const commentsModel = require('../../models/comment')
+const mongoose = require('mongoose')
+
 
 exports.create = async (req, res) => {
     const {
@@ -43,7 +45,14 @@ exports.getOne = async (req, res) => {
         course: course._id
     }).populate("user", "+ username").populate("course", "+ name")
 
-    return res.json({ course, sessions, comments, courseUsers })
+    let isUserRegisterToThisCourse = null
+
+    isUserRegisterToThisCourse = await courseUserModel.findOne({
+        user: req.user._id,
+        course: course._id
+    }).populate("user", '-password').populate("course")
+
+    return res.json({ course, sessions, comments, courseUsers, isUserRegisterToThisCourse })
 }
 
 exports.createSession = async (req, res) => {
@@ -153,6 +162,52 @@ exports.getCoursesByCategory = async (req, res) => {
         return res.json({ message: "Not found" })
     }
 
+
+
+}
+
+exports.remove = async (req, res) => {
+
+    const isObjectIDValid = mongoose.Types.ObjectId.isValid(req.params.id)
+    if (!isObjectIDValid) {
+        return res.status(404).json({
+            message: "Course is not valid"
+        })
+    }
+
+    const deleteCourse = await courseModel.findOneAndDelete({
+        _id: req.params.id
+    })
+
+    if (!deleteCourse) {
+        return res.status(404).json({
+            message: "Course is not found"
+        })
+    }
+
+    return res.json(deleteCourse)
+
+}
+
+exports.getRelatedCourse = async (req, res) => {
+
+    const { href } = req.params
+    const course = await courseModel.findOne({ href })
+
+
+    if (!course) {
+
+        return res.status(404).json({
+            message: "Course not found"
+        })
+    }
+
+
+    const relatedCourse = await courseModel.find({
+        categoryID: course.categoryID
+    })
+
+    return res.status(200).json({ relatedCourse })
 
 
 }
