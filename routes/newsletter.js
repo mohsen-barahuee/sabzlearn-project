@@ -7,5 +7,6 @@ router.route('/')
     .get(newsLetterController.getAll)
     .post(newsLetterController.create)
 
+    
 
 module.exports = router
