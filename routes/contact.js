@@ -10,5 +10,6 @@ router.route('/')
 
 router.route("/:id")
     .delete(authMiddleware, isAdminMiddleware, contactController.remove)
+    .put(authMiddleware, isAdminMiddleware, contactController.answer)
 
 module.exports = router
