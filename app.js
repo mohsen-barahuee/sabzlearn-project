@@ -7,6 +7,7 @@ const commentRouter = require("./routes/comment")
 const contactRouter = require('./routes/contact')
 const newsLetterRouter = require('./routes/newsletter')
 const searchRouter = require('./routes/search')
+const notificationRouter = require("./routes/notification")
 const cors = require('cors')
 const path = require('path')
 const bodyParses = require("body-parser")
@@ -31,5 +32,7 @@ app.use('/v1/comment', commentRouter)
 app.use('/v1/contact', contactRouter)
 app.use('/v1/newsletter', newsLetterRouter)
 app.use('/v1/search', searchRouter)
+app.use('/v1/notification', notificationRouter)
+
 
 module.exports = app
