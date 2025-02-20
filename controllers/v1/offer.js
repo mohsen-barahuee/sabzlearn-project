@@ -1,5 +1,6 @@
 const courseModel = require("../../models/course")
 const offerModel = require('../../models/offer')
+const mongoose = require('mongoose')
 
 
 exports.getAll = async (req, res) => {
@@ -40,9 +41,25 @@ exports.setAllOn = async (req, res) => {
 
 exports.getOne = async (req, res) => {
 
+    const { code } = req.params
+    const { course } = req.body
+
+    if (!mongoose.Types.ObjectId.isValid(course)) {
+        return res.json({ message: "course value is not valid" })
+    }
+    const off = await offerModel.findOne({ code, course })
+
+    if (!off) {
+        return res.status(404).json({ message: "invalid code !!!" })
+    } else if (off.max === off.uses) {
+        return res.json({ message: "you cant use this code anymore " })
+    } else {
+        await offerModel.findOneAndUpdate({ code, course }, { uses: off.uses + 1 })
+
+        return res.json({ message: "code activated " })
+    }
+
 }
-
-
 
 exports.remove = async (req, res) => {
 
