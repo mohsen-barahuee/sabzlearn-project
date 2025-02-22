@@ -7,8 +7,8 @@ const router = express.Router()
 
 
 
-router.route('/').get()
-router.route('/:id').get()
+router.route('/').get(authMiddleware, orderController.getAll)
+router.route('/:id').get(authMiddleware, orderController.getOne)
 
 
 

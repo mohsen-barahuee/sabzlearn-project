@@ -9,6 +9,7 @@ const newsLetterRouter = require('./routes/newsletter')
 const searchRouter = require('./routes/search')
 const notificationRouter = require("./routes/notification")
 const offerRouter = require('./routes/offer')
+const orderRouter = require("./routes/order")
 const cors = require('cors')
 const path = require('path')
 const bodyParses = require("body-parser")
@@ -35,6 +36,7 @@ app.use('/v1/newsletter', newsLetterRouter)
 app.use('/v1/search', searchRouter)
 app.use('/v1/notification', notificationRouter)
 app.use('/v1/offer', offerRouter)
+app.use("/v1/order",orderRouter)
 
 
 module.exports = app
