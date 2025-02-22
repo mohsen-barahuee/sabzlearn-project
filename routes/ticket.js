@@ -13,6 +13,7 @@ router.route('/user').get(authMiddleware, ticketController.userTickets)
 router.route('/departments').get(authMiddleware, ticketController.departments)
 router.route('/departments-sub/:id').get(authMiddleware, ticketController.departmentsSubs)
 router.route('/answer').post(authMiddleware, isAdminMiddleware, ticketController.setAnswer)
+router.route('/:id/answer').post(authMiddleware, isAdminMiddleware, ticketController.getAnswer)
 
 
 

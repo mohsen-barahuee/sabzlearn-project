@@ -23,3 +23,7 @@ exports.departmentsSubs = async (req, res) => {
 exports.setAnswer = async (req, res) => {
 
 }
+
+exports.getAnswer = async (req, res) => {
+
+}
