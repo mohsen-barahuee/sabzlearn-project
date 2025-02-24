@@ -1,0 +1,1574 @@
+{
+	"info": {
+		"_postman_id": "852754f0-a1cc-42ac-94bb-78dfa6ef9be0",
+		"name": "Sabzlearn",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "37769660"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mahdi gholiabadi\",\r\n    \"username\": \"mahdi.gholi\",\r\n    \"email\": \"mahdi@gmail.com\",\r\n    \"phone\": \"09112758588\",\r\n    \"password\": \"12345678\",\r\n    \"confirmPassword\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"identifier\": \"mahdi@gmail.com\",\r\n    \"password\":\"12345678\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getToken",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "admin",
+			"item": [
+				{
+					"name": "Ban Users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/ban/67ab9504730f5722b9448512",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"ban",
+								"67ab9504730f5722b9448512"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All users",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete user",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/users/67ac7fc49f458af8b4a422bb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"67ac7fc49f458af8b4a422bb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "change user role",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":\"67ab50c1284591acd58bd625\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/role",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								"role"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"mahdi gholiabadi\",\r\n    \"username\": \"mahdi.gholi\",\r\n    \"email\": \"mahdi@gmail.com\",\r\n    \"phone\": \"09112758588\",\r\n    \"password\": \"12345678\"\r\n    \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "category",
+			"item": [
+				{
+					"name": "create category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"blogs\",\r\n    \"href\": \"/image/3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all catergories",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/category/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"category",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"blogs\",\r\n    \"href\": \"/image/3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/category/67acaae378be3c8d04c1d793",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"category",
+								"67acaae378be3c8d04c1d793"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update category",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"node.js\",\r\n    \"href\": \"/image/3.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/category/67acaae378be3c8d04c1d793",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"category",
+								"67acaae378be3c8d04c1d793"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course/category/back-end",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"category",
+								"back-end"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "course",
+			"item": [
+				{
+					"name": "create course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "دوره متخصص پایتون",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "پایتون نوعی زبان برنامه‌نویسی‌ است که به دلیل سادگی و قدرت بالا، در بسیاری از حوزه‌ها، از توسعه وب گرفته تا هوش مصنوعی، به کار می‌رود. اگر با مفاهیم اولیه پایتون آشنا هستید و اکنون می‌خواهید به یک متخصص واقعی تبدیل شوید، دوره آموزش پیشرفته پایتون که توسط جادی تدریس می‌شود دقیقا برای شما طراحی شده است.\n",
+									"type": "text"
+								},
+								{
+									"key": "categoryID",
+									"value": "67acab41cf4210df66d6f8f3",
+									"type": "text"
+								},
+								{
+									"key": "support",
+									"value": "گروه تلگرامی",
+									"type": "text"
+								},
+								{
+									"key": "price",
+									"value": "4350000",
+									"type": "text"
+								},
+								{
+									"key": "href",
+									"value": "python-zero-to-hearo",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "در حال برگزاری",
+									"type": "text"
+								},
+								{
+									"key": "discount",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "cover",
+									"type": "file",
+									"src": "/C:/Users/Beruzkala/Desktop/error.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create sesstion",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "'test'",
+									"type": "text"
+								},
+								{
+									"key": "time",
+									"value": "'test'",
+									"type": "text"
+								},
+								{
+									"key": "free",
+									"value": "0",
+									"type": "text"
+								},
+								{
+									"key": "video",
+									"type": "file",
+									"src": "/C:/Users/Beruzkala/Desktop/8a085845d835b057bade70e0e101bcbf61500894-720p.mp4"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course/67ade27145aa23a0454426a0/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"67ade27145aa23a0454426a0",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get main courses",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/course/sessions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"sessions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get course session",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/course/python-zero-to-hearo/67adf6a213fc97fd8dc37bc1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"python-zero-to-hearo",
+								"67adf6a213fc97fd8dc37bc1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete session course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course/sessions/67adf6a213fc97fd8dc37bc1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"sessions",
+								"67adf6a213fc97fd8dc37bc1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/course/python-zero-to-hearo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"python-zero-to-hearo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/course/67ade27145aa23a0454426a0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"67ade27145aa23a0454426a0"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "find related course",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/course/related/python-zero-to-hearo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"related",
+								"python-zero-to-hearo"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "comment",
+			"item": [
+				{
+					"name": "create comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\":\"دوره خوبی است ای کاش ولی انقدر طولانی نبود\",\r\n    \"courseHref\":\"python-zero-to-hearo\",\r\n    \"score\":4\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/comment",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "accept comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course/67adffda38a60f646e17b9fb/accept",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"67adffda38a60f646e17b9fb",
+								"accept"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "answer comment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"body\":\"سلام با تشکر از لطف شما\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course/67adffda38a60f646e17b9fb/answer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"67adffda38a60f646e17b9fb",
+								"answer"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user register course",
+			"item": [
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTI5ODUyMCwiZXhwIjoxNzQxODkwNTIwfQ.uMsLbsr6Lid_-RuCg_DYTnWmar9kP9y9_7YxvQcqSfY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"price\":2424242424\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/course/67ade27145aa23a0454426a0/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"course",
+								"67ade27145aa23a0454426a0",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "contact us",
+			"item": [
+				{
+					"name": "send message to contact",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"name\":\"نسترن\",\r\n      \"email\":\"nataranGholi@gmail.com\", \r\n      \"phone\":\"01234124124124\", \r\n      \"body\":\"دوره ی ui و ux اضافه نمی کنید؟\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/contact/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"contact",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all contacts by admin",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/contact/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"contact",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/contact/67b33721d36b3577b741a16c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"contact",
+								"67b33721d36b3577b741a16c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "newsletter",
+			"item": [
+				{
+					"name": "create news email",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"aliahadi2323@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/newsletter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"newsletter"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all new emails",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"aliahadi2323@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/newsletter",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"newsletter"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "search",
+			"item": [
+				{
+					"name": "search Course",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/search/پایتون",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"search",
+								"پایتون"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "notification",
+			"item": [
+				{
+					"name": "create notification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"با سلام لطفا اطلاعات لازم را وارد نمایید \",\r\n    \"admin\": \"67ab9504730f5722b9448512\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/notification/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"notification",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all notification",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"message\": \"با سلام لفطا دوره ها را بارگذاری کنید\",\r\n    \"admin\": \"67ab50c1284591acd58bd625\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/notification/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"notification",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get admin notification",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/notification/admins",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"notification",
+								"admins"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "seen notification",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/notification/67b45246dc495a7ed7c4ac15/seen",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"notification",
+								"67b45246dc495a7ed7c4ac15",
+								"seen"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "offers code",
+			"item": [
+				{
+					"name": "make offer for courses",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"discount\" : 50\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/offer/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"offer",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create off code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\":\"test-code\",\r\n\"percent\":25,\r\n\"course\":\"67b1f6c5d580000d626e45c0\",\r\n\"max\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/offer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"offer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get all codes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"code\":\"test-code\",\r\n\"percent\":25,\r\n\"course\":\"67b1f6c5d580000d626e45c0\",\r\n\"max\":10\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/offer/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"offer",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "use code",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"course\":\"67b1f6c5d580000d626e45c0\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4000/v1/offer/test-code",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"offer",
+								"test-code"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "user order",
+			"item": [
+				{
+					"name": "get all",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/order",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"order"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get one ",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3YWI5NTA0NzMwZjU3MjJiOTQ0ODUxMiIsImlhdCI6MTczOTcxNTI5MywiZXhwIjoxNzQyMzA3MjkzfQ.QB2WylLJuG9q3fUmTX_NvmCnpdICmhVcu49xYrM2rbs",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/v1/order/67ae355817fc79892151e03a",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"v1",
+								"order",
+								"67ae355817fc79892151e03a"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
